@@ -31,13 +31,22 @@
 <label>21.06.88<br><span class='small'>(dzimšanas datums)<span></label>
 </h2>
 <div>Izsniegts apliecinot, ka izmeklējot <u>nazofarengiālu un orofarnegiālu iztriepi</u>, lai noteiktu SARS-CoV-2 vīrusa <u><b>RNS</b></u> klātbūtni, 
-<h3>testa rezultāts <span>31.08.21 15:07</span> bija
+<h3>testa rezultāts <span class="yesterdayLunchTime"></span> bija
 <u>Negatīvs</u>
 </h3>
 <div>Izmantotā metode: rRT-PCR</div><br>
-<div>Izziņas izsniegšanas datums: 01.09.21 08:20., parauga datums: 31.08.21 15:07</div>
+<div>Izziņas izsniegšanas datums: <span class="todayMorning"></span>., parauga datums: <span class="yesterdayLunchTime"></span></div>
 <br>
 <div class='small'>Izziņa parāda izmeklējuma veikšanas brīdī organismā detektējamo stāvokli.</div>
 
 </body>
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+<script>
+    document.querySelectorAll(".yesterdayLunchTime").forEach(function(each) {
+        each.innerHTML = dayjs().subtract(1, 'day').format("DD.MM.YY") + " 15:07"
+    });
+    document.querySelectorAll(".todayMorning").forEach(function(each) {
+        each.innerHTML = dayjs().format("DD.MM.YY") + " 8:20"
+    });    
+</script>
 </html>
